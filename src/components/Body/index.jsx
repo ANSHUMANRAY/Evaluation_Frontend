@@ -11,6 +11,7 @@ import './Body.css';
 
 export default function Body() {
   const [events, setEvents] = React.useState();
+  const [search, setSearch] = React.useState();
   const [change, isChange] = React.useState(false);
   const [isAll, setIsAll] = React.useState(true);
   const [isBookmarked, setIsBookmarked] = React.useState(false);
@@ -36,6 +37,7 @@ export default function Body() {
           }
         });
         setEvents(tempEvents);
+        setSearch(tempEvents);
       });
   }, [isAll, isBookmarked, isRegistered, areSeatsAvailable, change]);
 
@@ -46,7 +48,7 @@ export default function Body() {
 
   const filterBySearch = (e) => {
     const searchText = e.target.value;
-    const tempEvents = events.filter((event) => {
+    const tempEvents = search.filter((event) => {
       if(event.name.toLowerCase().includes(searchText.toLowerCase())) {
         return event;
       }

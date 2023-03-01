@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventDetails should render correctly 1`] = `
+<div>
+  <div
+    class="eventDetails"
+    style="background-color: black;"
+  >
+    <img
+      class="eventDetailsImg"
+    />
+    <div
+      class="eventDetailsInfo"
+    >
+      <p
+        class="eventDetailsName"
+      />
+      <p
+        class="detailsDescription"
+      />
+      <p
+        class="detailsVenue"
+      >
+        VENUE:
+      </p>
+      <p>
+        DATE:
+      </p>
+    </div>
+    <div
+      class="eventStatus"
+    >
+      <div>
+        <div />
+      </div>
+      <div>
+        <img
+          alt="bookmark"
+          class="bookmark"
+          src="bookmark-regular.svg"
+        />
+      </div>
+    </div>
+    <button
+      class="registerButton"
+    >
+      REGISTER
+    </button>
+  </div>
+</div>
+`;
