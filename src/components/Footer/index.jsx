@@ -9,9 +9,9 @@ export default function Footer() {
   React.useEffect(() => {
     axios.get('http://localhost:8000/api/themes')
       .then((response) => {
-        const {themes, preferredTheme} = response.data;
+        const {themes, preferredThemeId} = response.data;
         setThemeArray(themes);
-        const theme = (themes.find((theme) => theme.id === preferredTheme));
+        const theme = (themes.find((theme) => theme.id === preferredThemeId));
         setTheme(theme.colorHexCode);
       });
   }, []);
