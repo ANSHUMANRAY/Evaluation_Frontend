@@ -13,15 +13,17 @@ export default function Event() {
   const {theme} = React.useContext(ThemeContext);
   const {id} = useParams();
   const [event, setEvent] = React.useState({});
+  const [isBookmarked, setIsBookmarked] = React.useState(event.isBookmarked);
+  const [isRegistered, setIsRegistered] = React.useState(event.isRegistered);
   React.useEffect(() => {
     axios.get(`http://localhost:8000/api/events/${id}`)
       .then((response) => {
         setEvent(response.data);
+        setIsBookmarked(response.data.isBookmarked);
+        setIsRegistered(response.data.isRegistered);
       });
   }, []);
-  const [isBookmarked, setIsBookmarked] = React.useState(event.isBookmarked);
   const bookmarkIcon = isBookmarked ? bookmarked : bookmark;
-  const [isRegistered, setIsRegistered] = React.useState(event.isRegistered);
   const registerText = isRegistered ? 'UNREGISTER' : 'REGISTER';
   const handleBookmark = () => {
     axios.patch(`http://localhost:8000/api/events/${event.id}`, {isBookmarked: !isBookmarked})
