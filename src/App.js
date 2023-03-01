@@ -1,24 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Home, Details} from './pages';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './contexts/themeContext';
+// import { EventDetails } from './components';
+// import Body from './components/Body/index';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app'>
+      
+      <BrowserRouter>
+
+        <Routes>
+          <Route path='/' element={<ThemeProvider><Home/></ThemeProvider>} />
+          <Route path='/events/:id?' element={<ThemeProvider><Details/></ThemeProvider>} />
+          <Route path='/error/:errorId?' element={<h1>Error Occoured</h1>} />
+          <Route path='*' element={<h1>Error 404 Not Found</h1>} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
