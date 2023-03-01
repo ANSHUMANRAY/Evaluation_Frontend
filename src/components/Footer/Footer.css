@@ -1,0 +1,13 @@
+.themeColor{
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    bottom: 0;
+}
